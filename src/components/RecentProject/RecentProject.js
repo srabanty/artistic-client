@@ -50,7 +50,7 @@ const RecentProject = () => {
         ]
     };
     return (
-        <div className="project-area container my-5">
+        <div className="project-area container my-5" id="projects">
             <div className="section-title">
                 <p className="mb-0 text-highlight fw-bold">PROJECTS</p>
                 <h2 className="my-2"><span className="fw-bold">RECENTLY COMPLETED</span> WORKS</h2>

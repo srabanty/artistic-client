@@ -22,7 +22,7 @@ const GreatThing = () => {
                         <div className="single-thing h-100">
                             <h2><FontAwesomeIcon className="great-icons" icon={faComments} /> &nbsp;Live chat</h2>
                             <br />
-                            <h4>You can live chat with your freelancers to get constant updates on the progress of your work.</h4>
+                            <h4>You can live chat with your designers to get constant updates on the progress of your work.</h4>
                         </div>
                     </div>
                 </div>

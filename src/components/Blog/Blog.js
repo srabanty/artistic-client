@@ -8,7 +8,7 @@ import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 
 const Blog = () => {
     return (
-        <div className="working-process-area container pt-5 my-5">
+        <div className="blog-area container" id="blog">
             <div className="section-title text-center">
                 <p className="mb-0 text-highlight fw-bold">NEWS & UPDATES</p>
                 <h2 className="mt-2 mb-5"><span className="fw-bold">LATEST FROM</span> BLOG</h2>

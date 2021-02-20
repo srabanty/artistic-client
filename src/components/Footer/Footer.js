@@ -17,7 +17,7 @@ import project3 from '../../images/project-3.jpg';
 
 const Footer = () => {
     return (
-        <div className="footer-area">
+        <div className="footer-area" id="footer">
             <div className="arrow-btn">
                 <a href=""><FontAwesomeIcon icon={faChevronUp} className="footer-arrow"/></a>
             </div>

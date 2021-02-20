@@ -4,7 +4,7 @@ import aboutImg from '../../images/about.jpg';
 
 const AboutUs = () => {
     return (
-        <div className="aboutUs">
+        <div className="aboutUs" id="about">
             <div className="container">
                 <div className="row">
                     <div className="col-md-5">
