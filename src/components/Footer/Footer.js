@@ -120,7 +120,7 @@ const Footer = () => {
             </div>
             <div className="footer-bottom container py-3 d-flex justify-content-between">
                 <div className="copyright-text text-secondary">
-                    <p>&copy; 2019–2021 All Rights Reserved by <a href="#home" className="text-highlight text-decoration-none fw-bold">Artistic</a></p>
+                    <p>&copy; 2021 All Rights Reserved by <a href="#home" className="text-highlight text-decoration-none fw-bold">Artistic</a></p>
                 </div>
                 <div className="footer-social-links float-right">
                     <span className="fw-bold text-dark">We are On:</span>
