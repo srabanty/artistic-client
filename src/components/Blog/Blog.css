@@ -1,0 +1,23 @@
+.post-date span{
+    color: #ef5638;
+    font-size: 35px!important;
+    font-weight:bold;
+}
+.blog-img{
+    border: 5px solid #ddd;
+    overflow: hidden;
+}
+.blog-img img{
+    overflow: hidden;
+    transition: all .8s ease-in-out;
+}
+.single-blog:hover img{
+    transform: scale(1.1);
+}
+.blog-text a{
+    color: #000;
+    transition: .5s;
+}
+.blog-text a:hover{
+    color: #ef5638;
+}

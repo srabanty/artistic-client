@@ -1,0 +1,22 @@
+.single-testimonial{
+    position: relative;
+}
+.quote-icon{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 58px!important;
+    height: 60px;
+    padding:14px;
+    background-color: #ef5638;
+    color: #fff;
+}
+.testimonial-img{
+    display: block;
+    margin: 0 auto;
+    transition:transform 2s;
+}
+.single-testimonial:hover .testimonial-img{
+    transform:rotateY(360deg);
+}

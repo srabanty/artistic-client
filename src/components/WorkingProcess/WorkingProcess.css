@@ -1,0 +1,35 @@
+.working-icon{
+    color:#828282;
+}
+.single-process{
+    position: relative;
+    border-top: 3px solid #ef5638;
+    transition: all .5s ease;
+}
+.single-process:hover {
+    transform: translateY(-10px);
+    transition: all .5s ease;
+}
+.single-process:hover .working-icon{
+    color:#ef5638;
+    transition: all .5s ease-in-out;
+}
+.text-circular{
+    position: absolute;
+    top: -16%;
+    left: 39%;
+    padding:20px;
+    border: 3px solid #ef5638;
+    border-radius:50%;
+    background-color: #fff;
+}
+.single-process:hover .text-circular{
+    color: #fff;    
+    background-color: #ef5638;
+    transition: all .5s ease;
+    /* transform-style: preserve-3d;
+    transform: perspective(100px) rotateY(-90deg) translateZ(0px); */
+}
+.single-process p{
+    font-size:15px;
+}

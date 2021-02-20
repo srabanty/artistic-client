@@ -4,6 +4,10 @@ import Banner from '../Banner/Banner';
 import GreatThing from '../GreatThing/GreatThing';
 import Navbar from '../Navbar/Navbar';
 import RecentProject from '../RecentProject/RecentProject';
+import WorkingProcess from '../WorkingProcess/WorkingProcess';
+import Testimonials from '../Testimonials/Testimonials';
+import Blog from '../Blog/Blog';
+import Footer from '../Footer/Footer';
 
 const Home = () => {
     return (
@@ -13,6 +17,10 @@ const Home = () => {
             <AboutUs></AboutUs>
             <GreatThing></GreatThing>
             <RecentProject/>
+            <WorkingProcess/>
+            <Testimonials />
+            <Blog />
+            <Footer />
         </div>
     );
 };
