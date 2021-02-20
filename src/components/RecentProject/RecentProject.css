@@ -1,0 +1,55 @@
+.text-highlight{
+    color:#ef5638;
+}
+.section-title h2{
+    font-family: 'Rubik', sans-serif; 
+}
+.slick-dots li button:before{
+    font-size: 10px!important;
+    color:  #e96e56!important;
+}
+.slick-dots li.slick-active button:before{
+    font-size: 10px!important;
+    color: #ef5638!important;
+}
+.w-95{
+    width: 95%!important;
+}
+.single-project{
+    position: relative;
+    cursor: pointer;
+    overflow:hidden;
+    z-index: 2;
+    transition: all .5s ease-in-out;
+}
+.single-project::after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgb(39, 39, 39);
+    opacity: .7;
+    visibility: hidden;
+}
+.single-project .project-text{
+    z-index: 2;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    transition: all ease-in-out;
+    transition-delay: .1s;
+}
+.single-project:hover .project-text{
+    visibility:visible;
+    transition: all .5s ease-in-out;
+}
+.single-project:hover:after{
+    visibility:visible;
+    width: 100%;
+    transition: all .5s ease-in-out;
+}
