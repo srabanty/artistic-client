@@ -1,0 +1,36 @@
+.navbar{
+    font-family: 'Rubik', sans-serif;
+    border-bottom: 1px solid gray;
+}
+.navbar-brand{
+    font-family: 'Poppins', sans-serif;
+    font-size: 42px;
+    font-weight: bold;
+    color: #ef5638!important;
+}
+.navbar-brand a{
+    
+}
+.navbar ul{
+    margin-left: auto;
+}
+.navbar ul li a{
+    font-size: 18px;
+    color: black;
+    margin-left: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding-top: 10px;
+    margin-right: 10px;
+}
+.contact-br{
+    border-right: 1px solid lightgray;
+}
+.navbar ul li button{
+    background-color: #ef5638;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    margin-left: 20px;
+}

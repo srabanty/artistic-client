@@ -1,0 +1,22 @@
+.aboutUs{
+    margin-bottom: 100px;
+    font-family: 'Poppins', sans-serif;
+}
+.aboutUs img{
+    width: 100%;
+    border: 5px solid #ef5638;
+    padding: 5px;
+}
+.about-info h4{
+    color: #ef5638;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+.about-info h1{
+    font-weight: bold;
+}
+.about-info p{
+    color: gray;
+    font-size: 18px;
+    line-height: 35px;
+}

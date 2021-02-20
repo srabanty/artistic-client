@@ -1,0 +1,30 @@
+.greatThing{
+    margin-bottom: 100px;
+}
+.greatThing h1{
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Rubik', sans-serif;
+    color: #000;
+}
+.greatThing h1 span{
+    font-weight: normal;
+}
+.greatThing h2{
+    font-weight: bold;
+}
+.greatThing h4{
+    color: gray;
+    line-height: 35px;
+}
+.single-thing{
+    padding: 30px;
+    box-shadow: 0 0 15px lightgray;
+}
+.single-thing:hover{
+    box-shadow: 0 0 5px lightgray;
+    transition: .5s;
+}
+.great-icons{
+    color: #ef5638;
+}

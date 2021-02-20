@@ -1,0 +1,18 @@
+.banner-area{
+margin-bottom: 100px;
+}
+.carousel-caption{
+    text-align: left;
+    font-family: 'Kaushan Script', cursive;
+    letter-spacing: 2px;
+    text-shadow:2px 1px gray;
+    color: #ffff;
+}
+.carousel-caption h1 span{
+    font-size: 70px;
+}
+.carousel-caption h2 span{
+    color: #ef5638;
+    font-size: 50px;
+    font-weight: bold;
+}
