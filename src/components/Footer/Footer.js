@@ -27,11 +27,11 @@ const Footer = () => {
                         <div className="single-footer mb-4">
                             <h2 className="logo">Artistic</h2>
                             <h6 className="text-white border-bottom border-secondary pb-2">Address</h6>
-                            <p className="text-secondary">Flat 20, Reynolds Neck, North<br /> Helenaville, FV77 8WS</p>
+                            <p className="text-secondary">Sylhet</p>
                             <h6 className="text-white border-bottom border-secondary pb-2">Phone</h6>
-                            <p className="text-secondary">+324 123 45 978 & 01<br /> <span>Mon - Friday:</span> 9.00am to 6.00pm</p>
+                            <p className="text-secondary">+xxxxxxxx <br/> Opening: 24/7 </p>
                             <h6 className="text-white border-bottom border-secondary pb-2">Email</h6>
-                            <p className="text-secondary">support@crystalo.com<br /> crystalocareer@gmail.com</p>
+                            <p className="text-secondary">artistic.support@gmail.com</p>
                         </div>
                     </div>
                     <div className="col-md-3 col-sm-6 col-xs-6">
