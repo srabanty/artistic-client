@@ -3,7 +3,7 @@
 }
 .single-process{
     position: relative;
-    border-top: 3px solid #ef5638;
+    border-top: 3px solid #D0021B;
     transition: all .5s ease;
 }
 .single-process:hover {
@@ -11,7 +11,7 @@
     transition: all .5s ease;
 }
 .single-process:hover .working-icon{
-    color:#ef5638;
+    color:#D0021B;
     transition: all .5s ease-in-out;
 }
 .text-circular{
@@ -19,13 +19,13 @@
     top: -16%;
     left: 39%;
     padding:20px;
-    border: 3px solid #ef5638;
+    border: 3px solid #D0021B;
     border-radius:50%;
     background-color: #fff;
 }
 .single-process:hover .text-circular{
     color: #fff;    
-    background-color: #ef5638;
+    background-color: #D0021B;
     transition: all .5s ease;
     /* transform-style: preserve-3d;
     transform: perspective(100px) rotateY(-90deg) translateZ(0px); */

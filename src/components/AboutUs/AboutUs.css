@@ -4,11 +4,11 @@
 }
 .aboutUs img{
     width: 100%;
-    border: 5px solid #ef5638;
+    border: 5px solid #D0021B;
     padding: 5px;
 }
 .about-info h4{
-    color: #ef5638;
+    color: #D0021B;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
 }

@@ -3,10 +3,10 @@
     border-bottom: 1px solid gray;
 }
 .navbar-brand{
-    font-family: 'Poppins', sans-serif;
-    font-size: 42px;
-    font-weight: bold;
-    color: #ef5638!important;
+    font-family: 'Fondamento', cursive;
+    font-size: 45px;
+    font-weight: 700;
+    color: #D0021B!important;
 }
 .navbar-brand a{
     
@@ -17,20 +17,42 @@
 .navbar ul li a{
     font-size: 18px;
     color: black;
-    margin-left: 10px;
+    margin-left: 5px;
     font-weight: bold;
     letter-spacing: 1px;
     padding-top: 10px;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 .contact-br{
     border-right: 1px solid lightgray;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .navbar ul li button{
-    background-color: #ef5638;
+    background-color: #D0021B;
     color: white;
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid #D0021B;
+}
+.navbar ul li button:hover{
+    background-color: white;
+    border: 1px solid #D0021B;
+    color: #D0021B;
+}
+.admin-btn{
+    background-color: white!important;
+    color: #D0021B!important;
+    border: 1px solid #D0021B;
+}
+.admin-btn:hover{
+    background-color: #D0021B!important;
+    color: #fff!important;
+    border: 1px solid #D0021B;
+}
+.post-btn{
+    margin-right: 20px!important;
 }

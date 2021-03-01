@@ -15,7 +15,7 @@ const GreatThing = () => {
                         <div className="single-thing h-100">
                             <h2><FontAwesomeIcon className="great-icons" icon={faWindowRestore} /> &nbsp;Browse portfolios</h2>
                             <br />
-                            <h4>Find professionals you can trust by browsing their samples of previous work and reading their profile reviews.</h4>
+                            <h4>Find professionals you can trust by browsing their samples of previous work and reading their profile Feedbacks.</h4>
                         </div>
                     </div>
                     <div className="col-md-6">

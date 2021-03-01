@@ -2,7 +2,7 @@
     padding-top: 100px;
 }
 .text-highlight{
-    color:#ef5638;
+    color:#D0021B;
 }
 .section-title h2{
     font-family: 'Rubik', sans-serif; 
@@ -13,7 +13,7 @@
 }
 .slick-dots li.slick-active button:before{
     font-size: 10px!important;
-    color: #ef5638!important;
+    color: #D0021B!important;
 }
 .w-95{
     width: 95%!important;

@@ -14,7 +14,7 @@ const Testimonials = () => {
                 <p className="mb-0 text-highlight fw-bold">Testimonials</p>
                 <div className="d-flex justify-content-between">
                     <h2 className="my-2"><span className="fw-bold">OUR CUSTOMER</span> WORDS</h2>
-                    <a href="#home" className="text-decoration-none text-dark fw-bold mt-3">More Reviews <FontAwesomeIcon icon={faLongArrowAltRight} className="fa-lg ms-1" /></a>
+                    <a href="#home" className="text-decoration-none text-dark fw-bold mt-3">More Feedbacks <FontAwesomeIcon icon={faLongArrowAltRight} className="fa-lg ms-1" /></a>
                 </div>
             </div>
             <div className="row d-flex justify-content-center text-center">

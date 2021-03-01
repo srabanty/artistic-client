@@ -3,7 +3,7 @@ padding-top: 130px;
 margin-bottom: 50px;
 }
 .post-date span{
-    color: #ef5638;
+    color: #D0021B;
     font-size: 35px!important;
     font-weight:bold;
 }
@@ -23,5 +23,5 @@ margin-bottom: 50px;
     transition: .5s;
 }
 .blog-text a:hover{
-    color: #ef5638;
+    color: #D0021B;
 }
