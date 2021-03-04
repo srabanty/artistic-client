@@ -4,7 +4,7 @@
 }
 .navbar-brand{
     font-family: 'Fondamento', cursive;
-    font-size: 45px;
+    font-size: 38px;
     font-weight: 700;
     color: #D0021B!important;
 }
@@ -15,25 +15,25 @@
     margin-left: auto;
 }
 .navbar ul li a{
-    font-size: 18px;
+    font-size: 15px;
     color: black;
-    margin-left: 5px;
+    margin-left: 3px;
     font-weight: bold;
-    letter-spacing: 1px;
+    /* letter-spacing: 1px; */
     padding-top: 10px;
-    margin-right: 5px;
+    margin-right: 3px;
 }
 .contact-br{
     border-right: 1px solid lightgray;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .navbar ul li button{
     background-color: #D0021B;
     color: white;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold;
-    padding: 10px;
+    padding: 8px;
     margin-left: 10px;
     margin-right: 10px;
     border: 1px solid #D0021B;
@@ -54,5 +54,6 @@
     border: 1px solid #D0021B;
 }
 .post-btn{
+    margin-left: 5px!important;
     margin-right: 20px!important;
 }

@@ -93,21 +93,21 @@ const Footer = () => {
                                 <div className="carousel-inner">
                                     <div className="carousel-item active">
                                         <img src={project1} className="d-block w-100" alt="brochures" />
-                                        <div class="bg-white p-3">
+                                        <div className="bg-white p-3">
                                             <h5>Our Interior Design<br /> Brochure</h5>
                                             <a href="#home" className="text-decoration-none text-dark fw-bold mt-3">Download Now <FontAwesomeIcon icon={faLongArrowAltRight} className="fa-lg ms-1" /></a>
                                         </div>
                                     </div>
                                     <div className="carousel-item">
                                         <img src={project2} className="d-block w-100 img-fluid" alt="brochures" />
-                                        <div class="bg-white p-3">
+                                        <div className="bg-white p-3">
                                             <h5>Our Interior Design<br /> Brochure</h5>
                                             <a href="#home" className="text-decoration-none text-dark fw-bold mt-3">Download Now <FontAwesomeIcon icon={faLongArrowAltRight} className="fa-lg ms-1" /></a>
                                         </div>
                                     </div>
                                     <div className="carousel-item">
                                         <img src={project3} className="d-block w-100" alt="brochures" />
-                                        <div class="bg-white p-3">
+                                        <div className="bg-white p-3">
                                             <h5>Our Interior Design<br /> Brochure</h5>
                                             <a href="#home" className="text-decoration-none text-dark fw-bold mt-3">Download Now <FontAwesomeIcon icon={faLongArrowAltRight} className="fa-lg ms-1" /></a>
                                         </div>

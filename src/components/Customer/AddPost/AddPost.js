@@ -17,39 +17,54 @@ const AddPost = () => {
     }
 
     const onSubmit = (data) => {
-        const formData = new FormData()
-        formData.append('file', file);
-        formData.append('name', data.name);
-        formData.append('email', data.email);
-        formData.append('project', data.project);
-        formData.append('details', data.details);
-        formData.append('price', data.price);
-        formData.append('status', "Pending");
 
-        swal('Good Job', 'Your project added successfully!', 'success');
-        // history.push(`/home`);
+        console.log(data)
 
-    //     fetch('https://creative-agency-by-sarwar.herokuapp.com/addOrder', {
-    //         method: 'POST',
-    //         body: formData
-    //     })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             console.log(data)
-    //         })
-    //         .catch(error => {
-    //             console.error(error)
-    //         })
-    //     alert("Pst Added Successfully");
-    //     history.push(`/home`);
-     }
+        fetch('http://localhost:5000/clientAddPost', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                alert("post Added successfully!");
+                console.log(data);
+            })
+
+
+        // const formData = new FormData()
+        // // formData.append('file', file);
+        // formData.append('name', data.name);
+        // formData.append('email', data.email);
+        // formData.append('project', data.project);
+        // formData.append('details', data.details);
+        // formData.append('price', data.price);
+        // formData.append('status', "Pending");
+
+        // swal('Good Job', 'Your project added successfully!', 'success');
+        // // history.push(`/home`);
+
+        // fetch('http://localhost:5000/addPost', {
+        //     method: 'POST',
+        //     body: formData
+        // })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log(data)
+        //     })
+        //     .catch(error => {
+        //         console.error(error)
+        //     })
+        // alert("Pst Added Successfully");
+        // // history.push(`/home`);
+    }
 
     return (
         <div className="customer-right p-3">
-            <div className="w-75 mx-auto py-3 h-100"> 
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="w-75 mx-auto py-3">
+                <form onSubmit={handleSubmit(onSubmit)}>
 
-                {/* <input name="name" className="form-control p-3" defaultValue={loggedInUser.name} ref={register({ required: true })} placeholder="Your Name" />
+                    {/* <input name="name" className="form-control p-3" defaultValue={loggedInUser.name} ref={register({ required: true })} placeholder="Your Name" />
                 {errors.name && <span className="error">Name is required</span>}
                 <br />
 
@@ -72,34 +87,25 @@ const AddPost = () => {
 
                 <button className="btn pl-5 pr-5 mt-5" type="submit" style={{ backgroundColor: "#111430", color: "white" }}>Send</button> */}
 
-                <input name="name" className="form-control p-3" defaultValue="name" ref={register({ required: true })} placeholder="Your Name" />
-                
-                <br />
+                    <input name="name" className="form-control p-2 mb-3" defaultValue="name" ref={register({ required: true })} placeholder="Your Name" />
 
-                <input name="email" className="form-control p-3" defaultValue="email" ref={register({ required: true })} placeholder="Your Email" />
-                
-                <br />
+                    <input name="email" className="form-control p-2 mb-3" defaultValue="email" ref={register({ required: true })} placeholder="Your Email" />
 
-                <input type="text" name="project" className="form-control p-3" ref={register({ required: true })} placeholder="Project Name ( ex : Room interior)" />
-                
-                <br />
+                    <input type="text" name="project" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Project Name ( ex : Room interior)" />
 
-                <textarea name="details" rows="3" className="form-control p-3" ref={register({ required: true })} placeholder="Project Details"></textarea>
-                {/* <input name="details" type="text" rows="3" className="form-control p-3" ref={register({ required: true })} placeholder="Project Details" /> */}
-                
-                <br />
+                    <textarea name="details" rows="3" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Project Details"></textarea>
+                    {/* <input name="details" type="text" rows="3" className="form-control p-3" ref={register({ required: true })} placeholder="Project Details" /> */}
 
-                <input name="price" className="form-control p-3" ref={register({ required: true })} placeholder="Price Range" />
-                <br/>
+                    <input name="price" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Price Range" />
 
-                <input type="file" name="file" onChange={handleFileChange} className="p-1" placeholder="Upload project file" />
-                <br />
-                <br/>
-                <button className="btn btn-dark py-3 px-4 ml-2" type="submit">Submit</button>
-            </form>
+                    <input type="file" name="file" onChange={handleFileChange} className="p-1" placeholder="Upload project file" />
+                    <br />
+                    <br />
+                    <button className="btn btn-dark py-3 px-4 ml-2" type="submit">Submit</button>
+                </form>
+            </div>
         </div>
-        </div>
-        
+
     );
 };
 

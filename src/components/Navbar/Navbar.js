@@ -5,36 +5,36 @@ import { faArtstation } from '@fortawesome/free-brands-svg-icons'
 import { Link } from 'react-router-dom';
 const Navbar = () => {
     return (
-        <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-white">
-            <div class="container">
-                <a class="navbar-brand" href="#"><FontAwesomeIcon icon={faArtstation} /> Artistic</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+        <nav className="navbar navbar-expand-lg navbar-light sticky-top bg-white">
+            <div className="container">
+                <a className="navbar-brand" href="#"><FontAwesomeIcon icon={faArtstation} /> Artistic</a>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active ml-3" aria-current="page" href="#">HOME</a>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="#">HOME</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link ml-3" href="#about">ABOUT US</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#about">ABOUT US</a>
                         </li>
-                        <li class="nav-item ml-3">
-                            <a class="nav-link ml-3" href="#projects">PROJECTS</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#projects">PROJECTS</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#blog">BLOG</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#blog">BLOG</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#footer">CONTACT</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#footer">CONTACT</a>
                         </li>
-                        <li class="nav-item contact-br">
-                            <button className="btn post-btn">+ Post a Project</button>
+                        <li className="nav-item contact-br">
+                            <button className="btn post-btn">+ Post Project</button>
                         </li>
-                        <li class="nav-item">
-                            <Link to="/dashboard"><button className="btn">LOGIN</button></Link>
+                        <li className="nav-item">
+                            <Link to="/dashboard"><button className="btn">Login</button></Link>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <button className="btn admin-btn">Admin</button>
                         </li>
                     </ul>

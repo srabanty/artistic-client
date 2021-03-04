@@ -3,22 +3,35 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
+
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+        
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+        
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 .customer{
     font-family: 'Rubik', sans-serif;
 }
 
-.main-logo{
+.main-logo a{
     font-family: 'Fondamento', cursive;
-    font-size: 45px;
+    font-size: 38px;
     font-weight: 700;
     color: #fff!important;
+    text-decoration: none;
 }
 .dashboard-nav a{
     text-decoration: none;
-    font-size: 25px;
-    border-bottom: 2px solid gray;
+    font-size: 20px;
+    border-bottom: 1px dotted gray;
     display: block;
     width: 80%;
     font-weight: bold;
