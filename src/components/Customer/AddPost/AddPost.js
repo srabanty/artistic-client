@@ -1,102 +1,67 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './AddPost.css';
 import { useForm } from "react-hook-form";
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
+import { UserContext } from '../../../App';
 
-const AddPost = () => {
-    const { register, handleSubmit, watch, errors } = useForm();
+const AddPost = (props) => {
+    const { register } = useForm();
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+    const [addPostInfo, setAddPostInfo] = useState({}); //img
     const [file, setFile] = useState(null);
 
-    const { project } = useParams();
     const history = useHistory();
+
+    const handleBlur = e => {
+        const newInfo = { ...addPostInfo };
+        newInfo[e.target.name] = e.target.value;
+        setAddPostInfo(newInfo);
+    }
 
     const handleFileChange = (e) => {
         const newFile = e.target.files[0];
         setFile(newFile);
     }
+    const handleSubmit = () => {
+        const formData = new FormData()
+        formData.append('file', file)
+        formData.append('name', props.name)
+        formData.append('email', loggedInUser.email)
+        formData.append('project', addPostInfo.project)
+        formData.append('details', addPostInfo.details)
+        formData.append('price', addPostInfo.price)
 
-    const onSubmit = (data) => {
-
-        console.log(data)
-
-        fetch('http://localhost:5000/clientAddPost', {
+        fetch('http://localhost:5000/customerAddPost', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            body: formData
         })
-            .then(res => res.json())
+            .then(response => response.json())
             .then(data => {
-                alert("post Added successfully!");
                 console.log(data);
             })
-
-
-        // const formData = new FormData()
-        // // formData.append('file', file);
-        // formData.append('name', data.name);
-        // formData.append('email', data.email);
-        // formData.append('project', data.project);
-        // formData.append('details', data.details);
-        // formData.append('price', data.price);
-        // formData.append('status', "Pending");
-
-        // swal('Good Job', 'Your project added successfully!', 'success');
-        // // history.push(`/home`);
-
-        // fetch('http://localhost:5000/addPost', {
-        //     method: 'POST',
-        //     body: formData
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log(data)
-        //     })
-        //     .catch(error => {
-        //         console.error(error)
-        //     })
-        // alert("Pst Added Successfully");
-        // // history.push(`/home`);
-    }
+            .catch(error => {
+                console.error(error)
+            })
+        alert('Post Successfully Added!');
+        history.push(`/`);
+    };
 
     return (
         <div className="customer-right p-3">
             <div className="w-75 mx-auto py-3">
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit}>
+                
+                    <input onBlur={handleBlur} name="name" className="form-control p-2 mb-3" defaultValue={props.name} ref={register({ required: true })} placeholder="Enter Your Name" />
 
-                    {/* <input name="name" className="form-control p-3" defaultValue={loggedInUser.name} ref={register({ required: true })} placeholder="Your Name" />
-                {errors.name && <span className="error">Name is required</span>}
-                <br />
+                    <input name="email" className="form-control p-2 mb-3" defaultValue={loggedInUser.email} ref={register({ required: true })} placeholder="Your Email" />
 
-                <input name="email" className="form-control p-3" defaultValue={loggedInUser.email} ref={register({ required: true })} placeholder="Your Email" />
-                {errors.email && <span className="error">Email is required</span>}
-                <br />
+                    <input onBlur={handleBlur} type="text" name="project" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Project Name ( ex : Room interior)" />
 
-                <input type="text" name="project" className="form-control p-3" defaultValue={project} ref={register({ required: true })} placeholder="Project" />
-                {errors.project && <span className="error">Project is required</span>}
-                <br />
+                    <textarea onBlur={handleBlur} name="details" rows="3" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Project Details"></textarea>
 
-                <input name="details" type="text" rows="3" className="form-control p-5" ref={register({ required: true })} placeholder="Project Details" />
-                {errors.details && <span className="error">Project Details is required</span>}
-                <br />
-
-                <input name="price" className="p-2" ref={register({ required: true })} placeholder="Price" />
-                {errors.price && <span className="error">Price is required</span>}
-                <input type="file" name="file" onChange={handleFileChange} className="p-2" placeholder="Upload project file" />
-                <br />
-
-                <button className="btn pl-5 pr-5 mt-5" type="submit" style={{ backgroundColor: "#111430", color: "white" }}>Send</button> */}
-
-                    <input name="name" className="form-control p-2 mb-3" defaultValue="name" ref={register({ required: true })} placeholder="Your Name" />
-
-                    <input name="email" className="form-control p-2 mb-3" defaultValue="email" ref={register({ required: true })} placeholder="Your Email" />
-
-                    <input type="text" name="project" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Project Name ( ex : Room interior)" />
-
-                    <textarea name="details" rows="3" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Project Details"></textarea>
-                    {/* <input name="details" type="text" rows="3" className="form-control p-3" ref={register({ required: true })} placeholder="Project Details" /> */}
-
-                    <input name="price" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Price Range" />
+                    <input onBlur={handleBlur} name="price" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Price Range in BDT." />
 
                     <input type="file" name="file" onChange={handleFileChange} className="p-1" placeholder="Upload project file" />
                     <br />

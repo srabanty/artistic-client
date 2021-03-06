@@ -27,33 +27,30 @@ const Login = () => {
     const initialUser = {
         ...user,
     };
-    // const handleSignOut = () => {
-    //     firebase.auth().signOut()
-    //         .then(res => {
-    //             const signedOutUser = {
-    //                 isSignedIn: false,
-    //                 name: '',
-    //                 email: '',
-    //                 photo: '',
-    //                 error: '',
-    //                 success: false
-    //             }
-    //             setUser(signedOutUser);
-    //             console.log(res)
-    //         })
-    //         .catch(err => {
-    //             console.log(err)
-    //         })
-    // }
+    const handleSignOut = () => {
+        firebase.auth().signOut()
+            .then(res => {
+                const signedOutUser = {
+                    isSignedIn: false,
+                    name: '',
+                    email: '',
+                    photo: '',
+                    error: '',
+                    success: false
+                }
+                setUser(signedOutUser);
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
     if (firebase.apps.length === 0) {
         firebase.initializeApp(firebaseConfig);
     }
-    // const history = useHistory();
-    // const location = useLocation();
-    // let { from } = location.state || { from: { pathname: "/bookingdetails" } };
     const history = useHistory();
     const location = useLocation();
-    let { from } = location.state || { from: { pathname: "/" } };
+    let { from } = location.state || { from: { pathname: "/dashboard" } };
 
     const handleBlur = (e) => {
         let isFieldValid = true;
@@ -115,17 +112,18 @@ const Login = () => {
 
     const handleSubmit = (e) => {
 
-        console.log(designerCat);
-        console.log(user.email, user.password);
+        // console.log(designerCat);
+        // console.log(user.email, user.password);
 
         if (newUser && user.email && user.password) {
             // console.log('submitting')
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
                 .then(res => {
-                    console.log(res, user.name, user);
+                    // console.log(res, user.name, user);
                     const newUserInfo = { ...user };
                     newUserInfo.error = '';
                     newUserInfo.success = true;
+                    newUserInfo.isSignedIn = true;
                     setUser(newUserInfo);
 
                     updateUserName(user.name);
@@ -137,7 +135,9 @@ const Login = () => {
                     })
                         .then(res => res.json())
                         .then(data => {
-                            console.log(data);                            
+                            console.log(data);
+
+                            history.replace(from);
                         })
 
                     swal("Welcome!", "Sign Up Successful!", "success");
@@ -159,13 +159,20 @@ const Login = () => {
                 .then(res => {
                     const newUserInfo = { ...user };
                     newUserInfo.error = '';
+                    newUserInfo.name = user.name;
+                    newUserInfo.designer = user.designer;
+                    newUserInfo.isSignedIn = true;
                     newUserInfo.success = true;
-                    setUser(newUserInfo); 
-                    
+                    console.log(user)
+                    console.log(newUserInfo)
+
+                    setUser(newUserInfo);
+
                     setLoggedInUser(newUserInfo);
+
                     history.replace(from);
 
-                    console.log('sign in user info', res.user)
+                    // console.log('sign in user info', res.user)
                     swal("Welcome!", "Login Successful!", "success");
 
                 })
@@ -200,7 +207,8 @@ const Login = () => {
                                 <h1 className="card-logo text-center text-danger text-bold"><FontAwesomeIcon icon={faArtstation} /> Artistic</h1>
                                 <br />
                                 {newUser ? <h3 className="card-title mb-4 text-danger text-bold">Create an account</h3> : <h3 className="card-title mb-4 text-danger text-bold">Login</h3>}
-
+                                <p>{
+                                    console.log(loggedInUser.name)}</p>
                                 <div className='form-group'>
                                     <form onSubmit={handleSubmit}>
                                         {newUser && <input type="text" onBlur={handleBlur} name="name" placeholder="Username" className="form-control mb-4 login-input" required />}
@@ -216,9 +224,6 @@ const Login = () => {
                                         <p className="text-danger mt-2" id="phoneError"></p> */}
 
                                         {newUser && <div className="designerCat">
-                                            {/* <p>Are you a designer?</p> */}
-                                            {/* <input type="radio" name="designerCat" onChange={(e) => setDesignerCat(e.target.checked)} /><span>Yes</span>
-                                        <input type="radio" name="designerCat" onChange={(e) => setDesignerCat(e.target.checked)}/><span>No</span> */}
                                             <label htmlFor="designer">Are you a designer ?</label>
                                             <select style={{ marginLeft: '10px' }} name="designer" id="designer" onChange={(e) => setDesignerCat(e.target.value)} required>
                                                 <option value="">None</option>
@@ -232,7 +237,12 @@ const Login = () => {
                                     </form>
                                 </div>
 
-                                <p className='text-center mb-0'>{newUser ? 'Already have an account ?' : `Don't have an account ?`} <Link to={'/login'} onClick={() => setNewUser(!newUser)} className='text-danger'>{newUser ? 'Login' : 'Create an account'}</Link></p>
+                                <p className='text-center mb-0'>
+                                    {newUser ? 'Already have an account ?' : `Don't have an account ?`}
+                                    <Link to={'/login'} onClick={() => setNewUser(!newUser)} className='text-danger'>
+                                        {newUser ? 'Login' : 'Create an account'}
+                                    </Link>
+                                </p>
                                 <p style={{ color: 'red' }}>{user.error}</p>
                                 {
                                     user.success && <p style={{ color: 'green' }}>User {newUser ? 'created' : 'Logged in '} successfully!</p>

@@ -40,6 +40,16 @@
 .dashboard-nav a:hover{
     color: orangered!important;
 }
+.dashboard-nav button{
+    text-decoration: none;
+    font-size: 20px;
+    border-bottom: 1px dotted gray;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.dashboard-nav button:hover{
+    color: orangered!important;
+}
 .activeTab{
     color: orangered;
     font-weight: bold;

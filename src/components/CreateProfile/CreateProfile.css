@@ -1,0 +1,29 @@
+.createdProfile-bg{
+    background-image: url('../../images/banner-2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+        
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+        
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.createdProfile-logo a{
+    font-family: 'Fondamento', cursive;
+    font-size: 38px;
+    font-weight: 700;
+    color: #D0021B!important;
+    text-decoration: none;
+}
+.createdProfile{
+    margin-top: 110px;
+}

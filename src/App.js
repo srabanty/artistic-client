@@ -16,7 +16,8 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import NotMatch from './components/NotMatch/NotMatch';
 import YourProjects from './components/Customer/YourProjects/YourProjects';
 import CreateProfile from './components/CreateProfile/CreateProfile';
-// import Home from './components/Home/Home';
+import DesignerDashboard from './components/Designer/DesignerDashboard/DesignerDashboard';
+
 export const UserContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
@@ -43,6 +44,10 @@ function App() {
 
           <PrivateRoute path="/createProfile">
             <CreateProfile></CreateProfile>
+          </PrivateRoute>
+
+          <PrivateRoute path="/designerDashboard">
+            <DesignerDashboard/>
           </PrivateRoute>
           
           <Route path="/login">

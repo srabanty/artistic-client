@@ -1,34 +1,52 @@
-import React from 'react';
-import './YourProjects.css';
-import project2 from '../../../images/project-2.jpg';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import './YourProjects.css'
 
 const YourProjects = () => {
+    const [projectList, setProjectList] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/customerProjectList')
+            .then(res => res.json())
+            .then(data => {
+                setProjectList(data);
+            })
+    }, [])
     return (
-        <div className="row">
+        <div className="row customer-project">
             {
-                <div className="col-md-6">
-                    <div style={{ borderRadius: 10 }} className="p-3 bg-white m-2">
-                        <div className="d-flex">
-                            {/* <div>
-                                {
-                                    service.image.img && <img src={`data:image/png;base64,${service.image.img}`} className="w-25 img-fluid rounded-circle" alt="" />
-                                }
-                            </div>
-                            <button className={service.status === "Pending" ? "btn btn-danger ml-auto" : service.status === "On going" ? "btn btn-warning ml-auto" : "btn btn-success ml-auto"}>{service.status}</button> */}
-                            <div>
-                                <img className="w-25 img-fluid rounded-circle img-thumbnail" src={project2} alt=""/>
-                            </div>
-                            <button className="btn">Status</button>
-                        </div>
-                        <div className="mt-3">
-                            {/* <h5>{service.project}</h5>
-                            <p className="text-muted">{service.details}</p> */}
-                            <h3>Project title</h3>
-                            <p className="text-muted">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem, aperiam?</p>
-                            <a className="text-danger text-decoration-none text-bold" href="">View Detail</a>
-                        </div>
+                projectList.length === 0 &&
+                <div className="div">
+                    <span style={{fontSize:'20px', fontWeight:'bold', color:'white'}}>Loading...</span>
+                    <div className="spinner-grow text-danger" role="status">
+                    </div>
+                    <div className="spinner-grow text-warning" role="status">
+                    </div>
+                    <div className="spinner-grow text-info" role="status">
                     </div>
                 </div>
+            }
+            {
+                projectList.map(singleProject =>
+                    <div className="col-md-4" key={singleProject._id}>
+                        <div style={{ borderRadius: 20 }} className="p-3 bg-white m-2  h-100">
+                            <div className="d-flex justify-content-between">
+                                <div>
+                                    {
+                                        singleProject.image.img && <img src={`data:image/png;base64,${singleProject.image.img}`} className="img-fluid " alt="img" />
+                                    }
+                                </div>
+                                {/* <button className={singleProject.status === "Pending" ? "btn btn-danger ml-auto" : singleProject.status === "On going" ? "btn btn-warning ml-auto" : "btn btn-success ml-auto"}>{singleProject.status}</button> */}
+                                <p>status</p>
+                            </div>
+                            <div className="mt-3">
+                                <h5>{singleProject.project}</h5>
+                                <p className="text-muted">{singleProject.details}</p>
+                                <Link to="/"><button type="button" className="btn btn-danger">View details</button></Link>
+                            </div>
+                        </div>
+                    </div>
+                )
             }
         </div>
     );

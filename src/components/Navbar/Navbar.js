@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArtstation } from '@fortawesome/free-brands-svg-icons'
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
+
 const Navbar = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light sticky-top bg-white">
             <div className="container">
@@ -23,17 +27,27 @@ const Navbar = () => {
                             <a className="nav-link" href="#projects">PROJECTS</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#blog">BLOG</a>
+                            <a className="nav-link" href="#footer">CONTACT</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#footer">CONTACT</a>
+                            <Link to="/dashboard"><button className="btn admin-btn">Dashboard</button></Link>
                         </li>
                         <li className="nav-item contact-br">
                             <button className="btn post-btn">+ Post Project</button>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link to="/dashboard"><button className="btn">Login</button></Link>
-                        </li>
+                        </li> */}
+
+                        {
+                            loggedInUser.isSignedIn
+                                ? <li className="nav-item">
+                                    <Link to="/" onClick={() => setLoggedInUser({})}><button className="btn">Logout</button></Link>
+                                </li>
+                                : <li className="nav-item">
+                                    <Link to="/login"><button className="btn">Login</button></Link>
+                                </li>
+                        }
                         <li className="nav-item">
                             <button className="btn admin-btn">Admin</button>
                         </li>
