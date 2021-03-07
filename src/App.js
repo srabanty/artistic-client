@@ -15,8 +15,8 @@ import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import NotMatch from './components/NotMatch/NotMatch';
 import YourProjects from './components/Customer/YourProjects/YourProjects';
-import CreateProfile from './components/CreateProfile/CreateProfile';
 import DesignerDashboard from './components/Designer/DesignerDashboard/DesignerDashboard';
+import CreateProfile from './components/Designer/CreateProfile/CreateProfile';
 
 export const UserContext = createContext();
 function App() {
@@ -33,20 +33,20 @@ function App() {
           </PrivateRoute>
 
           <PrivateRoute path="/dashboard">
-            <AddPost></AddPost>
+            <AddPost/>
           </PrivateRoute>
           <PrivateRoute path="/dashboard">
-            <YourProjects></YourProjects>
+            <YourProjects/>
           </PrivateRoute>
           <PrivateRoute path="/dashboard">
-            <Feedback></Feedback>
+            <Feedback/>
           </PrivateRoute>
 
           <PrivateRoute path="/createProfile">
-            <CreateProfile></CreateProfile>
+            <CreateProfile/>
           </PrivateRoute>
 
-          <PrivateRoute path="/designerDashboard">
+          <PrivateRoute path="/dashboard">
             <DesignerDashboard/>
           </PrivateRoute>
           

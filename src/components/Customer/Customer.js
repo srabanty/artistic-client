@@ -9,6 +9,7 @@ import AddPost from './AddPost/AddPost';
 import Feedback from './Feedback/Feedback';
 import YourProjects from './YourProjects/YourProjects';
 import { UserContext } from '../../App';
+import user from '../../images/user.png'
 
 const Customer = (props) => {
     console.log(props);
@@ -21,14 +22,16 @@ const Customer = (props) => {
     return (
         <div className="dashboard-bg text-left">
             {/* {console.log(loggedInUser)} */}
-            <div className="container customer py-3">
+            <div className="container dashboard py-3">
                 <div className="row">
                     <div className="col-md-4 py-3">
                         <h1 className="main-logo text-white"><Link to="/"><FontAwesomeIcon icon={faArtstation} /> Artistic</Link></h1>
                     </div>
                     <div className="col-md-8 d-flex justify-content-between py-4">
-                        <h3 className="text-white text-left">{active}</h3>
-                        <h4 className="text-white p-3">{props.name}</h4>
+                        <h4 className="text-white text-left">{active}</h4>
+
+                        <h4 className="text-white">Hi, {props.name} <img src={user} alt="user" className="img-fluid user-img" />
+                        </h4>
                     </div>
                     <div className="row">
                         <div className="col-md-4 dashboard-nav">

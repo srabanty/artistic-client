@@ -125,6 +125,7 @@ const Login = () => {
                     newUserInfo.success = true;
                     newUserInfo.isSignedIn = true;
                     setUser(newUserInfo);
+                    
 
                     updateUserName(user.name);
                     const info = { name: user.name, email: user.email, password: user.password, designer: designerCat }
@@ -167,12 +168,10 @@ const Login = () => {
                     console.log(newUserInfo)
 
                     setUser(newUserInfo);
-
+                    console.log(newUserInfo);
                     setLoggedInUser(newUserInfo);
-
+                    console.log(loggedInUser);
                     history.replace(from);
-
-                    // console.log('sign in user info', res.user)
                     swal("Welcome!", "Login Successful!", "success");
 
                 })

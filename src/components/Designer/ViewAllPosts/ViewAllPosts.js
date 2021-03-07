@@ -1,23 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import './YourProjects.css'
+import React, { useEffect, useState } from 'react';
+import './ViewAllPosts.css'
 
-const YourProjects = () => {
-    const [projectList, setProjectList] = useState([]);
+const ViewAllPosts = () => {
+    const [posts, setAllPosts] = useState([])
 
     useEffect(() => {
         fetch('http://localhost:5000/customerProjectList')
             .then(res => res.json())
             .then(data => {
-                setProjectList(data);
+                setAllPosts(data);
             })
     }, [])
     return (
-        <div className="row customer-project">
+        <div className="row all-project">
             {
-                projectList.length === 0 &&
-                <div className="div ">
-                    <span style={{fontSize:'20px', fontWeight:'bold', color:'white'}}>Loading...</span>
+                posts.length === 0 &&
+                <div className="div">
+                    <span style={{ fontSize: '20px', fontWeight: 'bold', color: 'white' }}>Loading...</span>
                     <div className="spinner-grow text-danger" role="status">
                     </div>
                     <div className="spinner-grow text-warning" role="status">
@@ -27,24 +26,29 @@ const YourProjects = () => {
                 </div>
             }
             {
-                projectList.map(singleProject =>
-                    <div className="col-md-4" key={singleProject._id}>
-                        <div style={{ borderRadius: 20 }} className="p-3 bg-white m-2  h-100">
+                posts.map(singlePost =>
+                    <div className="col-md-12 mb-3" key={singlePost._id}>
+                        <div style={{ borderRadius: 10 }} className="p-3 bg-white m-2  h-100">
                             <div className="d-flex justify-content-between">
                                 <div>
                                     {
-                                        singleProject.image.img && <img src={`data:image/png;base64,${singleProject.image.img}`} className="img-fluid " alt="img" />
+                                        singlePost.image.img && <img className="allPost-img" src={`data:image/png;base64,${singlePost.image.img}`} alt="img" />
                                     }
                                 </div>
                                 {/* <button className={singleProject.status === "Pending" ? "btn btn-danger ml-auto" : singleProject.status === "On going" ? "btn btn-warning ml-auto" : "btn btn-success ml-auto"}>{singleProject.status}</button> */}
                                 <p>status</p>
                             </div>
                             <div className="mt-3">
-                                <h5>{singleProject.project}</h5>
-                                <p className="text-muted">{singleProject.details}</p>
-                                <Link to="/"><button type="button" className="btn btn-danger">View details</button></Link>
+                                <h3 className="text-danger post-title">{singlePost.project}</h3>
+                                <p className="text-muted">Posted By: {singlePost.name} ({singlePost.email})</p>
+                                <hr />
+                                <h5>Project Description ~</h5>
+                                <h5 className="text-muted">{singlePost.details}</h5>
+                                <h3 className="text-danger font-weight-bold">&#2547; {singlePost.price}</h3>
+
                             </div>
                         </div>
+
                     </div>
                 )
             }
@@ -52,4 +56,4 @@ const YourProjects = () => {
     );
 };
 
-export default YourProjects;
+export default ViewAllPosts;
