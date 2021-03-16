@@ -32,6 +32,8 @@ const AddPost = (props) => {
         formData.append('project', addPostInfo.project)
         formData.append('details', addPostInfo.details)
         formData.append('price', addPostInfo.price)
+        formData.append('startDate', addPostInfo.startDate)
+        formData.append('endDate', addPostInfo.endDate)
 
         fetch('http://localhost:5000/customerAddPost', {
             method: 'POST',
@@ -44,7 +46,19 @@ const AddPost = (props) => {
             .catch(error => {
                 console.error(error)
             })
-        alert('Post Successfully Added!');
+
+        fetch('http://localhost:5000/adminAllPost', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error(error)
+            })
+        swal("Congrats!", "Post Successfully Added!", "success");
         history.push(`/`);
     };
 
@@ -52,16 +66,23 @@ const AddPost = (props) => {
         <div className="customer-right p-3">
             <div className="w-75 mx-auto py-3">
                 <form onSubmit={handleSubmit}>
-                
-                    <input onBlur={handleBlur} name="name" className="form-control p-2 mb-3" defaultValue={props.name} ref={register({ required: true })} placeholder="Enter Your Name" />
 
-                    <input name="email" className="form-control p-2 mb-3" defaultValue={loggedInUser.email} ref={register({ required: true })} placeholder="Your Email" />
+                    <input onBlur={handleBlur} name="name" className="form-control p-2 mb-3" defaultValue={props.name} ref={register({ required: true })} placeholder="Enter Your Name" readOnly />
+
+                    <input name="email" className="form-control p-2 mb-3" defaultValue={loggedInUser.email} ref={register({ required: true })} placeholder="Your Email" readOnly />
 
                     <input onBlur={handleBlur} type="text" name="project" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Project Name ( ex : Room interior)" />
 
                     <textarea onBlur={handleBlur} name="details" rows="3" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Project Details"></textarea>
 
                     <input onBlur={handleBlur} name="price" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Price Range in BDT." />
+                    
+                    <label className="mb-3">Start date: &nbsp;</label>
+                    <input  onBlur={handleBlur} name="startDate" type="date"  placeholder="Start Date" required ref={register({ required: true })} />
+                    <br />
+
+                    <label className="mb-3">End date: &nbsp;</label>
+                    <input  onBlur={handleBlur} name="endDate" type="date"  placeholder="End Date" required ref={register({ required: true })} />
 
                     <input type="file" name="file" onChange={handleFileChange} className="p-1" placeholder="Upload project file" />
                     <br />

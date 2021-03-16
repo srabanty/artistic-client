@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 import user from '../../images/user.png';
-import testimonial2 from '../../images/testimonial-2.png';
-import testimonial3 from '../../images/testimonial-3.png';
 
 const Testimonials = () => {
     const [feedback, setFeedback] = useState([]);

@@ -1,23 +1,10 @@
 .designerDashboard{
-    /* background-image: url('../../../images/bg4.jpg');
+    background-image: url('../../../images/bg4.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
-    font-family: 'Rubik', sans-serif; */
-
-    /* Set rules to fill background */
-    /* min-height: 100%;
-    min-width: 1024px; */
-        
-    /* Set up proportionate scaling */
-    background-color: black;
-    width: 100%;
-    min-height: 100%;
-        
-    /* Set up positioning */
-    /* position: fixed; */
-    top: 0;
-    left: 0;
+    font-family: 'Rubik', sans-serif;
+    height:200vh
 }
 .user-img{
     width:30px;

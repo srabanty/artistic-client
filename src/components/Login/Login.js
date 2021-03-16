@@ -20,6 +20,7 @@ const Login = () => {
         email: '',
         password: '',
         designer: '',
+        phone: '',
         photo: '',
         error: ''
     })
@@ -35,6 +36,7 @@ const Login = () => {
                     name: '',
                     email: '',
                     photo: '',
+                    phone: '',
                     error: '',
                     success: false
                 }
@@ -55,7 +57,8 @@ const Login = () => {
     const handleBlur = (e) => {
         let isFieldValid = true;
         if (e.target.name === "name") {
-            isFieldValid = /^[A-Za-z]+$/;
+            // isFieldValid = /^[A-Za-z]+$/; 
+            isFieldValid = /^[a-zA-Z ]*$/;
             if (e.target.value.length < 3) {
                 initialUser[`${e.target.name}`] = "";
                 document.getElementById("nameError").innerText =
@@ -90,33 +93,15 @@ const Login = () => {
             }
             document.getElementById("passwordError").innerText = "";
         }
-        // if (e.target.name === "phone") {
-        //     isFieldValid = ((e.target.value).length === 11);
-
-        //     if (!isFieldValid) {
-        //         initialUser[`${e.target.name}`] = "";
-        //         document.getElementById("phoneError").innerText =
-        //             "Not a valid Phone Number";
-        //         return;
-        //     }
-        //     document.getElementById("phoneError").innerText = "";
-        // }
         if (isFieldValid) {
             const newUserInfo = { ...user };
             newUserInfo[e.target.name] = e.target.value;
             setUser(newUserInfo);
-            // setInput(newUserInfo);
-            // setInput({ ...input, [e.target.name]: e.target.value })
         }
     }
 
     const handleSubmit = (e) => {
-
-        // console.log(designerCat);
-        // console.log(user.email, user.password);
-
         if (newUser && user.email && user.password) {
-            // console.log('submitting')
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
                 .then(res => {
                     // console.log(res, user.name, user);
@@ -125,10 +110,10 @@ const Login = () => {
                     newUserInfo.success = true;
                     newUserInfo.isSignedIn = true;
                     setUser(newUserInfo);
-                    
+
 
                     updateUserName(user.name);
-                    const info = { name: user.name, email: user.email, password: user.password, designer: designerCat }
+                    const info = { name: user.name, email: user.email, password: user.password, phone: user.phone, designer: designerCat }
                     fetch('http://localhost:5000/addAllUsers', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -162,6 +147,7 @@ const Login = () => {
                     newUserInfo.error = '';
                     newUserInfo.name = user.name;
                     newUserInfo.designer = user.designer;
+                    newUserInfo.phone = user.phone;
                     newUserInfo.isSignedIn = true;
                     newUserInfo.success = true;
                     console.log(user)
@@ -170,7 +156,7 @@ const Login = () => {
                     setUser(newUserInfo);
                     console.log(newUserInfo);
                     setLoggedInUser(newUserInfo);
-                    console.log(loggedInUser);
+                    // console.log(loggedInUser);
                     history.replace(from);
                     swal("Welcome!", "Login Successful!", "success");
 
@@ -200,14 +186,16 @@ const Login = () => {
             <div className='container'>
                 <div className='create-account-form mx-auto mt-3 row'>
                     <div className="row">
-                        <div className="col-md-4"></div>
+                        <div className="col-md-4">
+                            <Link to="/">
+                                <button type="button" className="btn btn-danger">Go Home</button>
+                            </Link>
+                        </div>
                         <div className="card col-md-4">
                             <div className="card-body">
                                 <h1 className="card-logo text-center text-danger text-bold"><FontAwesomeIcon icon={faArtstation} /> Artistic</h1>
                                 <br />
                                 {newUser ? <h3 className="card-title mb-4 text-danger text-bold">Create an account</h3> : <h3 className="card-title mb-4 text-danger text-bold">Login</h3>}
-                                <p>{
-                                    console.log(loggedInUser.name)}</p>
                                 <div className='form-group'>
                                     <form onSubmit={handleSubmit}>
                                         {newUser && <input type="text" onBlur={handleBlur} name="name" placeholder="Username" className="form-control mb-4 login-input" required />}
@@ -218,9 +206,12 @@ const Login = () => {
 
                                         <input type="password" onBlur={handleBlur} name="password" placeholder="Enter Password" className="form-control mb-4 login-input" required />
                                         <p className="text-danger mt-2" id="passwordError"></p>
-                                        {/* {newUser && <input type="text" onBlur={handleBlur} name="phone" placeholder="Enter Phone Number" className="form-control mb-4 login-input" required />}
 
-                                        <p className="text-danger mt-2" id="phoneError"></p> */}
+                                        {/* {newUser <input type="text" onBlur={handleBlur} name="phone" placeholder="Enter Phone Number (ex: +88017XXXXXXXX)" className="form-control mb-4 login-input" required />} */}
+
+                                        {newUser && <input type="text" onBlur={handleBlur} id="phone" name="phone" pattern="[0]{1}[1]{1}[0-9]{9}" placeholder="01XXXXXXXXX" required />}
+
+                                        <p className="text-danger mt-2" id="phoneError"></p>
 
                                         {newUser && <div className="designerCat">
                                             <label htmlFor="designer">Are you a designer ?</label>

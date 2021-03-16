@@ -3,8 +3,7 @@ import React, { createContext, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 import Home from './components/Home/Home';
@@ -16,7 +15,11 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import NotMatch from './components/NotMatch/NotMatch';
 import YourProjects from './components/Customer/YourProjects/YourProjects';
 import DesignerDashboard from './components/Designer/DesignerDashboard/DesignerDashboard';
-import CreateProfile from './components/Designer/CreateProfile/CreateProfile';
+import DesignerProfile from './components/Designer/DesignerProfile/DesignerProfile';
+import Admin from './components/Admin/Admin';
+import ViewApplicants from './components/Customer/ViewApplicants/ViewApplicants';
+import Create from './components/Create/Create';
+import SinglePendingPost from './components/Admin/SinglePendingPost/SinglePendingPost';
 
 export const UserContext = createContext();
 function App() {
@@ -42,17 +45,32 @@ function App() {
             <Feedback/>
           </PrivateRoute>
 
-          <PrivateRoute path="/createProfile">
-            <CreateProfile/>
+          <PrivateRoute path="/dashboard">
+            <DesignerProfile/>
           </PrivateRoute>
 
           <PrivateRoute path="/dashboard">
             <DesignerDashboard/>
           </PrivateRoute>
           
+          <PrivateRoute path="/dashboard">
+            <Admin/>
+          </PrivateRoute>
+
+          <Route path="/applicants/:id">
+            <ViewApplicants></ViewApplicants>
+          </Route>
+          <Route path="/singlePendingPost/:id">
+              <SinglePendingPost></SinglePendingPost>
+          </Route>
+          
           <Route path="/login">
             <Login />
           </Route>
+          <Route path="/create">
+            <Create />
+          </Route>
+          
           
           <Route path="*">
             <NotMatch />

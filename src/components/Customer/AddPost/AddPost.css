@@ -4,6 +4,7 @@ input[type=file]{
 .customer-right{
     background-color: white;
     border-radius: 5px;
+    border-top: 4px solid #D0021B;
     /* position: relative;
     animation: myfirst 1s 2;
     animation-direction: alternate; */

@@ -29,7 +29,7 @@ const Feedback = (props) => {
         <div className="customer-right p-3">
             <div className="w-75 mx-auto py-3 h-100">
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <input name="name" className="form-control p-4" defaultValue={props.name} ref={register({ required: true })} placeholder="Your Name" />
+                    <input name="name" className="form-control p-4" defaultValue={props.name} ref={register({ required: true })} placeholder="Your Name" readOnly />
 
                     <br />
 

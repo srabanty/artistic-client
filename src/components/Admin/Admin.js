@@ -1,27 +1,26 @@
-import React, { useContext, useState } from 'react';
-import './Customer.css';
+import React, { useContext, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusSquare, faListAlt, faCommentDots, faSignOutAlt, faSignInAlt, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import { faPlusSquare, faAddressCard, faSignOutAlt, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { faArtstation } from '@fortawesome/free-brands-svg-icons';
-
+import bg from '../../images/bg4.jpg'
+import './Admin.css'
 import { Link } from 'react-router-dom';
-import AddPost from './AddPost/AddPost';
-import Feedback from './Feedback/Feedback';
-import YourProjects from './YourProjects/YourProjects';
 import { UserContext } from '../../App';
 import user from '../../images/user.png'
-import ApprovedPost from './ApprovedPost/ApprovedPost';
+import PendingPosts from './PendingPosts/PendingPosts';
+import DesignerInfo from './DesignerInfo/DesignerInfo';
+import CustomerInfo from './CustomerInfo/CustomerInfo';
 
-const Customer = (props) => {
+const Admin = (props) => {
     console.log(props);
-    const [active, setActive] = useState("Add a Project");
+    const [active, setActive] = useState("Pending Posts");
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     const handleTab = (tabName) => {
         setActive(tabName);
     }
     return (
-        <div className="dashboard-bg text-left">
+        <div className="dashboard-bg"  style={{ backgroundImage: `url(${bg})` }}>
             {/* {console.log(loggedInUser)} */}
             <div className="container dashboard py-3">
                 <div className="row">
@@ -30,6 +29,7 @@ const Customer = (props) => {
                     </div>
                     <div className="col-md-8 d-flex justify-content-between py-4">
                         <h4 className="text-white text-left">{active}</h4>
+
                         <h4 className="text-white">Hi, {props.name} <img src={user} alt="user" className="img-fluid user-img" />
                         </h4>
                     </div>
@@ -37,13 +37,11 @@ const Customer = (props) => {
                         <div className="col-md-4 dashboard-nav">
                             <br />
                             <br />
-                            <Link to="/dashboard" onClick={() => handleTab("Add a Project")} className={active === "Add a Project" ? "activeTab font-weight-bold  p-2" : "font-weight-bold p-2 text-white"}><FontAwesomeIcon icon={faPlusSquare} /> &nbsp;Add a Project</Link>
+                            <Link to="/dashboard" onClick={() => handleTab("Pending Posts")} className={active === "Pending Posts" ? "activeTab font-weight-bold  p-2" : "font-weight-bold p-2 text-white"}><FontAwesomeIcon icon={faPlusSquare} /> &nbsp;Pending Posts</Link>
                             <br />
-                            <Link to="/dashboard" onClick={() => handleTab("Your Projects")} className={active === "Your Projects" ? "activeTab font-weight-bold  p-2" : "font-weight-bold p-2 text-white"}><FontAwesomeIcon icon={faListAlt} /> &nbsp;Your Projects</Link>
+                            <Link to="/dashboard" onClick={() => handleTab("Designer Info")} className={active === "Designer Info" ? "activeTab font-weight-bold  p-2" : "font-weight-bold p-2 text-white"}><FontAwesomeIcon icon={faAddressCard} /> &nbsp;Designer Info</Link>
                             <br />
-                            <Link to="/dashboard" onClick={() => handleTab("Approved Posts")} className={active === "Approved Posts" ? "activeTab font-weight-bold  p-2" : "font-weight-bold p-2 text-white"}><FontAwesomeIcon icon={faCheckSquare} /> &nbsp;Approved Posts</Link>
-                            <br />
-                            <Link to="/dashboard" onClick={() => handleTab("Give Feedback")} className={active === "Give Feedback" ? "activeTab font-weight-bold  p-2" : "font-weight-bold p-2 text-white"}><FontAwesomeIcon icon={faCommentDots} /> &nbsp;Give Feedback</Link>
+                            <Link to="/dashboard" onClick={() => handleTab("Customer Info")} className={active === "Customer Info" ? "activeTab font-weight-bold  p-2" : "font-weight-bold p-2 text-white"}><FontAwesomeIcon icon={faAddressCard} /> &nbsp;Customer Info</Link>
                             {
                                 loggedInUser.isSignedIn
                                     ?
@@ -54,16 +52,13 @@ const Customer = (props) => {
                         </div>
                         <div className="col-md-8 rounded">
                             {
-                                active === "Add a Project" && <AddPost name={props.name} />
+                                active === "Pending Posts" && <PendingPosts/>
                             }
                             {
-                                active === "Your Projects" && <YourProjects />
+                                active === "Designer Info" && <DesignerInfo/>
                             }
                             {
-                                active === "Approved Posts" && <ApprovedPost />
-                            }
-                            {
-                                active === "Give Feedback" && <Feedback name={props.name} />
+                                active === "Customer Info" && <CustomerInfo/>
                             }
                         </div>
                     </div>
@@ -73,4 +68,4 @@ const Customer = (props) => {
     );
 };
 
-export default Customer;
+export default Admin;
