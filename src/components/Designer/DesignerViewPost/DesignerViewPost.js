@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReply } from '@fortawesome/free-solid-svg-icons';
+import { faReply,faUserEdit,faHourglassStart, faHourglassEnd,faAlignLeft } from '@fortawesome/free-solid-svg-icons';
 import swal from 'sweetalert';
+import { faArtstation } from '@fortawesome/free-brands-svg-icons';
 
 
 const DesignerViewPost = ({ singlePost, profile }) => {
@@ -50,16 +51,16 @@ const DesignerViewPost = ({ singlePost, profile }) => {
             <div style={{
                 borderRadius: 10,
                 borderTop: '4px solid #D0021B'
-            }} className="p-3 bg-white m-2  h-100">
+            }} className="p-5 bg-white m-2  h-100">
                 <h3 className="text-danger post-title">{singlePost.projectName}</h3>
-                <p><span className="text-muted fw-bold"> Posted By: </span>{singlePost.customerName} ({singlePost.customerEmail})</p>
-                <p><span className="fw-bold text-secondary">Posted on:&nbsp; </span>{startDate}</p>
-                <p><span className="fw-bold text-secondary">Apply Before:&nbsp;  </span>{endDate}</p>
+                <p className="p-0 m-0"><span className="text-dark fw-bold"> <FontAwesomeIcon icon={faUserEdit} />&nbsp;Posted By: </span>{singlePost.customerName} ({singlePost.customerEmail})</p>
+                <p className="p-0 m-0"><span className="fw-bold text-dark "><FontAwesomeIcon icon={faHourglassStart} /> &nbsp;&nbsp;&nbsp;Posted on:&nbsp; </span>{startDate}</p>
+                <p className="p-0 m-0"><span className="fw-bold text-dark "><FontAwesomeIcon icon={faHourglassEnd} /> &nbsp;&nbsp;&nbsp;Apply Before:&nbsp;  </span>{endDate}</p>
                 <hr />
                 <h5>Project Description ~</h5>
                 <p className="text-muted">{singlePost.projectDetail}</p>
                 <h4 className="text-danger font-weight-bold">&#2547; {singlePost.projectPrice}</h4>
-
+                <br/>
                 <button onClick={() => handleClick(singlePost)} className="btn btn-primary fw-bold"><FontAwesomeIcon icon={faReply} /> &nbsp;Apply Now</button>
             </div>
         </div >

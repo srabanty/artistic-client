@@ -14,7 +14,7 @@ const Dashboard = () => {
         fetch('http://localhost:5000/allUsers')
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
+                console.log(data);
 
                 // console.log(loggedInUser);
                 // setLoggedInUser(data)

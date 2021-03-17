@@ -71,11 +71,11 @@ const AddPost = (props) => {
 
                     <input name="email" className="form-control p-2 mb-3" defaultValue={loggedInUser.email} ref={register({ required: true })} placeholder="Your Email" readOnly />
 
-                    <input onBlur={handleBlur} type="text" name="project" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Project Name ( ex : Room interior)" />
+                    <input onBlur={handleBlur} type="text" name="project" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Project Name ( ex : Room interior)" required/>
 
-                    <textarea onBlur={handleBlur} name="details" rows="3" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Project Details"></textarea>
+                    <textarea onBlur={handleBlur} name="details" rows="3" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Project Details" required></textarea>
 
-                    <input onBlur={handleBlur} name="price" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Price Range in BDT." />
+                    <input onBlur={handleBlur} name="price" className="form-control p-2 mb-3" ref={register({ required: true })} placeholder="Price Range in BDT." required/>
                     
                     <label className="mb-3">Start date: &nbsp;</label>
                     <input  onBlur={handleBlur} name="startDate" type="date"  placeholder="Start Date" required ref={register({ required: true })} />
@@ -84,7 +84,7 @@ const AddPost = (props) => {
                     <label className="mb-3">End date: &nbsp;</label>
                     <input  onBlur={handleBlur} name="endDate" type="date"  placeholder="End Date" required ref={register({ required: true })} />
 
-                    <input type="file" name="file" onChange={handleFileChange} className="p-1" placeholder="Upload project file" />
+                    <input type="file" name="file" onChange={handleFileChange} className="p-1" placeholder="Upload project file" required />
                     <br />
                     <br />
                     <button className="btn btn-dark py-3 px-4 ml-2" type="submit">Submit</button>

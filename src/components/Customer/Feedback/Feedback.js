@@ -33,10 +33,10 @@ const Feedback = (props) => {
 
                     <br />
 
-                    <input name="projectName" className="form-control p-4" ref={register({ required: true })} placeholder="Project Name" />
+                    <input name="projectName" className="form-control p-4" ref={register({ required: true })} placeholder="Project Name" required />
 
                     <br />
-                    <textarea name="projectReview" rows="3" className="form-control p-4" ref={register({ required: true })} placeholder="Project Review"></textarea>
+                    <textarea name="projectReview" rows="3" className="form-control p-4" ref={register({ required: true })} placeholder="Project Review" required></textarea>
 
                     <br />
 
