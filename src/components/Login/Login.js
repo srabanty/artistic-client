@@ -207,9 +207,7 @@ const Login = () => {
                                         <input type="password" onBlur={handleBlur} name="password" placeholder="Enter Password" className="form-control mb-4 login-input" required />
                                         <p className="text-danger mt-2" id="passwordError"></p>
 
-                                        {/* {newUser <input type="text" onBlur={handleBlur} name="phone" placeholder="Enter Phone Number (ex: +88017XXXXXXXX)" className="form-control mb-4 login-input" required />} */}
-
-                                        {newUser && <input type="text" onBlur={handleBlur} id="phone" name="phone" pattern="[0]{1}[1]{1}[0-9]{9}" placeholder="01XXXXXXXXX" required />}
+                                        {newUser && <input type="text" onBlur={handleBlur} id="phone" name="phone" pattern="[0]{1}[1]{1}[0-9]{9}" placeholder="Phone (ex: 01xxxxxxxxx)" required />}
 
                                         <p className="text-danger mt-2" id="phoneError"></p>
 

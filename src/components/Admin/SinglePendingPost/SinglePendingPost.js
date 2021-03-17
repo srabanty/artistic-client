@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import project from '../../../images/project-1.jpg'
 
@@ -60,15 +60,18 @@ const SinglePendingPost = () => {
                 setSinglePendingPost(result);
             })
 
-            history.push('/dashboard')
+        history.push('/dashboard')
     }
 
 
     return (
-        <div className="bg-dark">
+        <div className="dashboard-bg">
             <div className="container">
                 <div className="row py-5">
                     <div className="col-md-2">
+                        <Link to="/dashboard">
+                            <button type="button" className="btn btn-danger">Go Back</button>
+                        </Link>
                     </div>
                     <div className="col-md-8 bg-white  my-5">
                         <div style={{ borderRadius: '20px' }} className="row p-3 bg-white h-100">

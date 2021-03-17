@@ -16,7 +16,7 @@ const AboutUs = () => {
                         <hr/>
                         <br/>
                         <h1 className="">A PLATFORM OF</h1>
-                        <h2>INTERIOR DESIGN & WEDDING PLANNING</h2>
+                        <h2>INTERIOR DESIGN & PLANNING</h2>
                         <br/>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, exercitationem voluptates dolorum velit libero dignissimos corrupti? Voluptate tempora perferendis placeat.</p>
                         <br/>

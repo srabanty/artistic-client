@@ -26,14 +26,15 @@ const Navbar = () => {
                         <li className="nav-item">
                             <a className="nav-link" href="#projects">PROJECTS</a>
                         </li>
+                        
+                        <li className="nav-item">
+                            <a className="nav-link" href="#blog">BLOG</a>
+                        </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#footer">CONTACT</a>
                         </li>
-                        <li className="nav-item">
-                            <Link to="/dashboard"><button className="btn admin-btn">Dashboard</button></Link>
-                        </li>
                         <li className="nav-item contact-br">
-                            <button className="btn post-btn">+ Post Project</button>
+                            <Link to="/dashboard"><button className="btn admin-btn post-btn">Dashboard</button></Link>
                         </li>
                         {
                             loggedInUser.isSignedIn

@@ -20,9 +20,9 @@ const GreatThing = () => {
                     </div>
                     <div className="col-md-6">
                         <div className="single-thing h-100">
-                            <h2><FontAwesomeIcon className="great-icons" icon={faComments} /> &nbsp;Live chat</h2>
+                            <h2><FontAwesomeIcon className="great-icons" icon={faComments} /> &nbsp;Choose Prefered Designer</h2>
                             <br />
-                            <h4>You can live chat with your designers to get constant updates on the progress of your work.</h4>
+                            <h4>You can choose a designers to get constant updates on the progress of your work.</h4>
                         </div>
                     </div>
                 </div>
