@@ -9,8 +9,8 @@ import DesignerViewPost from '../DesignerViewPost/DesignerViewPost';
 const ViewAllPosts = (props) => {
     console.log(props.profile[0]);
 
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
-    
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext)    
+    const [search, setSearch] = useState('');
 
     const [posts, setAllPosts] = useState([]);
     const history = useHistory();
@@ -26,14 +26,17 @@ const ViewAllPosts = (props) => {
     }, [])
 
     useEffect(() => {
-        fetch('http://localhost:5000/approvedPostList')
+        fetch('http://localhost:5000/approvedPostList?search=' + search)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 setAllPosts(data);
             })
-    }, [])
+    }, [search])
 
+    const handleSearch = event => {
+        setSearch(event.target.value);
+    }
     return (
         <div className="row all-project">
             {
@@ -45,6 +48,9 @@ const ViewAllPosts = (props) => {
                     <div className="spinner-grow text-info" role="status"></div>
                 </div>
             }
+            <div className="search-box">
+                <input placeholder="Search Post..." type="text" onBlur={handleSearch} className="search-bar" />
+            </div>
             {
                 posts.map(singlePost =>
 

@@ -8,7 +8,6 @@ import DesignerProfile from '../DesignerProfile/DesignerProfile';
 import ViewAllPosts from '../ViewAllPosts/ViewAllPosts';
 import './DesignerDashboard.css'
 import user from '../../../images/user.png';
-import DesignerActivity from '../DesignerActivity/DesignerActivity';
 
 const DesignerDashboard = (props) => {
     console.log(props);
@@ -55,8 +54,6 @@ const DesignerDashboard = (props) => {
                             <br />
                             <Link to="/dashboard" onClick={() => handleTab("View All Posts")} className={active === "View All Posts" ? "activeTab font-weight-bold  p-2" : "font-weight-bold p-2 text-white"}><FontAwesomeIcon icon={faListAlt} /> &nbsp;View All Posts</Link>
                             <br />
-                            <Link to="/dashboard" onClick={() => handleTab("Designer Activity")} className={active === "Designer Activity" ? "activeTab font-weight-bold  p-2" : "font-weight-bold p-2 text-white"}><FontAwesomeIcon icon={faClipboardList} /> &nbsp;Designer Activity</Link>
-                            <br />
                             
                             {
                                 loggedInUser.isSignedIn
@@ -74,9 +71,6 @@ const DesignerDashboard = (props) => {
                             }
                             {
                                 active === "View All Posts" && <ViewAllPosts profile={profileList}/>
-                            }
-                            {
-                                active === "Designer Activity" && <DesignerActivity/>
                             }
                         </div>
                     </div>
